@@ -1,0 +1,64 @@
+
+<!-- OVERLAY -->
+<div
+class="camunda-modal-overlay"
+*ngIf="visible">
+
+<!-- MODAL -->
+<div class="camunda-modal">
+
+<!-- HEADER -->
+<div class="camunda-header">
+
+<div>
+
+<h3>
+Workflow Viewer
+</h3>
+
+<small>
+Camunda Process Diagram
+</small>
+
+</div>
+
+<button
+class="close-btn"
+(click)="close()">
+
+✕
+
+</button>
+
+</div>
+
+<!-- TABS -->
+<div class="workflow-tabs">
+
+<button class="active">
+Sơ đồ quy trình
+</button>
+
+<button>
+Lịch sử hồ sơ
+</button>
+
+<button>
+Lịch sử phê duyệt
+</button>
+
+</div>
+
+<!-- BPMN -->
+<div
+#bpmnContainer
+class="bpmn-container">
+</div>
+
+</div>
+
+</div>
+
+
+
+

@@ -1,0 +1,86 @@
+<!-- camunda-task.component.html -->
+
+<div class="container">
+
+  <h2>Camunda Tasks</h2>
+
+  <table>
+
+    <thead>
+
+    <tr>
+
+      <th>Task ID</th>
+
+      <th>Assignee</th>
+
+      <th>Ngày tạo</th>
+
+      <th>Process Instance</th>
+
+      <th>Action</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr *ngFor="let task of tasks">
+
+      <td><button
+        class="btn btn-info"
+        (click)="openPdf(task?.dmsFiles[0]?.id)">
+
+        {{ task.docId }}
+
+      </button></td>
+
+      <td>{{ task.createdBy }}</td>
+
+      <td>{{ task.createdDate }}</td>
+
+      <td>{{ task.processInstanceId }}</td>
+
+      <td>
+
+        <button
+          class="btn btn-primary"
+          (click)="viewCamunda(task.processInstanceId)">
+
+          View Camunda
+
+        </button>
+
+
+        <button
+          *ngFor="let btn of task.actionButtons"
+          class="btn me-2"
+          [ngClass]="'btn-' + btn.color"
+          (click)="processTask(task, btn)">
+
+          {{ btn.label }}
+
+        </button>
+
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+<!-- CAMUNDA VIEWER -->
+
+<app-camunda-viewer
+  [(visible)]="showViewer"
+  [processInstanceId]="selectedProcessId">
+</app-camunda-viewer>
+
+<app-pdf-viewer
+  [(visible)]="isShowPdf"
+  [pdfUrl]="pdfUrl">
+</app-pdf-viewer>

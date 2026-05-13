@@ -1,0 +1,54 @@
+<div
+  class="pdf-modal-overlay"
+  *ngIf="visible">
+
+  <div class="pdf-modal-container">
+
+    <!-- HEADER -->
+    <div class="pdf-modal-header">
+
+      <div class="d-flex align-items-center">
+
+        <div class="pdf-icon">
+          <i class="fa fa-file-pdf"></i>
+        </div>
+
+        <div class="ms-3">
+
+          <h4 class="mb-0">
+            PDF Viewer
+          </h4>
+
+          <small class="text-muted">
+            Document Preview
+          </small>
+
+        </div>
+
+      </div>
+
+      <button
+        class="close-btn"
+        (click)="close()">
+
+        ✕
+
+      </button>
+
+    </div>
+
+    <!-- BODY -->
+    <div class="pdf-modal-body">
+
+      <iframe
+        *ngIf="pdfUrl"
+        [src]="pdfUrl"
+        width="100%"
+        height="100%"
+        style="border:none">
+      </iframe>
+
+    </div>
+
+  </div>
+</div>

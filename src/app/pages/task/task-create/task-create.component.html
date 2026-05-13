@@ -1,0 +1,35 @@
+<!-- camunda-task.component.html -->
+<div class="container-fluid p-4">
+
+  <h4>Add a new member</h4>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="p-2">
+        <!-- Form  -->
+        <form>
+          <div class="row">
+            <label class="col-sm-4 col-md-6 col-lg-5 col-xl-2 col-form-label">File</label>
+            <div class="col-sm-7 col-md-6 col-lg-7 col-xl-4">
+              <input
+                type="file"
+                class="form-control mt-2"
+                accept=".pdf,application/pdf"
+                (change)="onFileChange($event)" />
+            </div>
+          </div>
+        </form>
+        <div class="row pt-3">
+          <div class="col-4 text-left">
+            <button class="btn btn-primary" type="button" (click)="createTask()">
+              <i class="fas fa-check mr-1"></i>Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
